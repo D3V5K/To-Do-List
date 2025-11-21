@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="title">Task Management Pro</div>
+        <div class="button">
+            <button class="new-task">Nouvelle Tâche</button>
+            <button class="MultipleTasks">Multiples Tâches</button>
+        </div>
+    </header>
+      <div class="modal">
+        <div class="form-card">
+            <h2>Nouvelle tâche</h2>
+
+            <label>Titre</label>
+            <input type="text" class="input Titre">
+
+            <label>Description</label>
+            <textarea class="input textarea"></textarea>
+
+            <div class="row">
+                <div class="col">
+                    <label>Date d'échéance</label>
+                    <input type="date" class="input date">
+                </div>
+
+                <div class="col">
+                    <label>Priorité</label>
+                    <select class="input select">
+                        <option>P1</option>
+                        <option>P2</option>
+                        <option>P3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="btns AJ">
+                <button class="btn cancel">Annuler</button>
+                <button class="btn add">Ajouter</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="search">
+            <input type="text" class="Input-search" placeholder="Rechercher une Tâche...">
+            <div class="custom-select">
+                <select>
+                    <option>toutes les propriétés</option>
+                    <option>P1</option>
+                    <option>P2</option>
+                    <option>P3</option>
+                </select>
+            </div>
+            <div class="custom-select">
+                <select id="Selecter">
+                    <option>Trier par date</option>
+                    <option>Trier par priorité</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="situation">
+            <div>
+                <p class="parg1">Total des Tâches</p>
+                <p class="TotalDeTaches"></p>
+            </div>
+            <div>
+                <p class="parg2">À faire</p>
+                <p class="num2">0</p>
+            </div>
+            <div>
+                <p class="parg3">En cours</p>
+                <p class="num3">0</p>
+            </div>
+            <div>
+                <p class="parg4">Terminées</p>
+                <p class="num4">0</p>
+            </div>
+        </div>
+
+       <div class="Content">
+    <div class="column">
+        <p id="line">À faire</p>
+        <div  draggable="true" class="task AFaire"></div>
+    </div>
+
+    <div class="column">
+        <p id="line">En cours</p>
+        <div class="task EnCours"></div>
+    </div>
+
+    <div class="column">
+        <p id="line">Terminées</p>
+        <div class="task Termine"></div>
+    </div>
+</div>
+
+    </div>
+<script src="script.js"></script>
+
+</html>

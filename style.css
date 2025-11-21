@@ -1,0 +1,496 @@
+:root {
+    /* Brand Colors */
+    --primary: #7B2CBF;
+    --secondary: #4CC9F0;
+    --accent: #F72585;
+    --warning: #FF9E00;
+    --success: #2A9D8F;
+    --danger: #E63946;
+    --bg-light: #fff;
+    --bg-card: #FFF4C7;
+    --border: #E9ECEF;
+    --text-dark: #212529;
+    --text-gray: #6C757D;
+    --focus: #8b5cf6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eee;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: top 0.3s ease;
+}
+
+header.hide {
+    top: -100px;
+}
+
+.container {
+    margin-top: 80px;
+    padding: 0 15px;
+    transition: margin-top 0.3s ease;
+}
+
+.container.up {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.button {
+    display: flex;
+    gap: 10px;
+}
+
+button.new-task,
+button.MultipleTasks {
+    font-size: 15px;
+    padding: .6rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+}
+
+button.new-task {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+button.MultipleTasks {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+.search {
+    background-color: var(--bg-light);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.Input-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    transition: 0.3s ease;
+}
+
+.Input-search::placeholder {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.Input-search:hover {
+    border: 2px solid var(--focus);
+}
+
+.Input-search:focus {
+    border-color: var(--focus);
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+}
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+    min-width: 180px;
+}
+
+.custom-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 12px 25px;
+    width: 100%;
+    border: 2px solid #d0d0d0;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.custom-select select:hover {
+    border-color: var(--focus);
+}
+
+.custom-select select:focus {
+    border-color: var(--focus);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+    outline: none;
+}
+
+.custom-select::after {
+    content: "▾";
+    font-size: 14px;
+    color: #666;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.situation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem 0;
+}
+
+.situation div {
+    background-color: var(--bg-light);
+    height: 80px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 260px;
+    border-radius: 20px;
+    padding: .6rem;
+    box-shadow: 2px 5px 5px rgba(33, 37, 41, 0.2);
+    text-align: center;
+}
+
+.situation div p {
+    font-size: 20px;
+    font-family: inherit;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+p.parg1 {
+    color: var(--text-dark);
+}
+
+p.parg2 {
+    color: var(--text-gray);
+}
+
+p.parg3 {
+    color: var(--danger);
+}
+
+p.parg4 {
+    color: var(--success);
+}
+
+p.num1 {
+    color: var(--text-dark);
+}
+
+p.num2 {
+    color: var(--text-gray);
+}
+
+p.num3 {
+    color: var(--danger);
+}
+
+p.num4 {
+    color: var(--success);
+}
+
+.Content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem 0;
+}
+
+.Content .column {
+    background-color: var(--bg-light);
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 250px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Content .column #line {
+    font-size: 20px;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    text-transform: capitalize;
+    text-align: center;
+}
+
+
+.task {
+    min-height: 250px;
+    padding: 10px;
+}
+
+/*add task */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+}
+
+
+.form-card {
+    background: var(--bg-card);
+    width: 430px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-card h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+}
+
+.textarea {
+    height: 100px;
+    resize: none;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.col {
+    width: 100%;
+}
+
+.btns {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+}
+
+.cancel {
+    background: #E3E6EB;
+}
+
+.add {
+    background: #297BFF;
+    color: white;
+}
+.edit {
+    background-color: var(--success);
+}
+
+/*---*/
+.Task {
+    background-color: var(--bg-light);
+    height: 240px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.TaskTitle {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.taskDescription {
+    background-color: var(--text-gray);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.taskDate {
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.taskSelect {
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.DivBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.removeBtn {
+    background-color: var(--danger);
+    padding: 7px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    width: 80px;
+    text-align: center;
+}
+
+.editBtn {
+    background-color: var(--accent);
+    padding: 7px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+     width: 80px;
+}
+
+@media (max-width: 1024px) {
+    .Content .column {
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .container {
+        margin-top: 130px;
+    }
+
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .Input-search {
+        min-width: 100%;
+    }
+
+    .custom-select {
+        min-width: 100%;
+    }
+
+    .Content .column {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    button.new-task,
+    button.MultipleTasks {
+        width: 100%;
+    }
+
+    .container {
+        margin-top: 160px;
+    }
+
+    .situation div {
+        min-width: 100%;
+    }
+}

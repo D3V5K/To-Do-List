@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .board {
+        display: flex;
+        gap: 20px;
+    }
+
+    .column {
+        width: 30%;
+        min-height: 300px;
+        background: #eee;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .task {
+        background: white;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 6px;
+        cursor: grab;
+    }
+</style>
+
+<body>
+    <div class="board">
+        <div class="column">
+            <h3>À faire</h3>
+            <div class="task" draggable="true">Task 1</div>
+            <div class="task" draggable="true">Task 2</div>
+        </div>
+
+        <div class="column">
+            <h3>En cours</h3>
+        </div>
+
+        <div class="column">
+            <h3>Terminées</h3>
+        </div>
+    </div>
+
+</body>
+<script>
+    const tasks = document.querySelectorAll('.task');
+    const columns = document.querySelectorAll('.column');
+
+    tasks.forEach(task => {
+        task.addEventListener('dragstart', () => {
+            task.classList.add('dragging');
+        });
+
+        task.addEventListener('dragend', () => {
+            task.classList.remove('dragging');
+        });
+    });
+
+    columns.forEach(column => {
+        column.addEventListener('dragover', e => {
+            e.preventDefault(); // ضروري باش يقبل الـ drop
+            const draggingTask = document.querySelector('.dragging');
+            column.appendChild(draggingTask);
+        });
+    });
+</script>
+
+</html>
