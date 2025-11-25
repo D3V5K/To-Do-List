@@ -96,8 +96,7 @@ button.MultipleTasks {
     gap: 15px;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
-    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .Input-search {
@@ -175,22 +174,21 @@ button.MultipleTasks {
 }
 
 .situation {
+    width: 100% ;
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
     padding: 1rem 0;
 }
 
 .situation div {
+    
     background-color: var(--bg-light);
     height: 80px;
     flex: 1;
     min-width: 200px;
     max-width: 260px;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: .6rem;
     box-shadow: 2px 5px 5px rgba(33, 37, 41, 0.2);
     text-align: center;
@@ -202,7 +200,7 @@ button.MultipleTasks {
     text-transform: capitalize;
     letter-spacing: 1px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 p.parg1 {
@@ -221,19 +219,20 @@ p.parg4 {
     color: var(--success);
 }
 
-p.num1 {
+p.TotalDeTaches {
     color: var(--text-dark);
+    font-size: 50px;
 }
 
-p.num2 {
+p.NumAFaire {
     color: var(--text-gray);
 }
 
-p.num3 {
+p.NumEnCours {
     color: var(--danger);
 }
 
-p.num4 {
+p.NumTerminées {
     color: var(--success);
 }
 
@@ -251,7 +250,7 @@ p.num4 {
     flex: 1;
     min-width: 300px;
     max-width: 400px;
-    min-height: 250px;
+    min-height: 350px;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -373,7 +372,7 @@ p.num4 {
     border-radius: 20px;
     box-shadow: 1px 1px 5px;
     padding: 10px;
-    margin-top: 15px;
+    margin-top: 2rem;
 }
 
 .TaskTitle {

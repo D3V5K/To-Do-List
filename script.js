@@ -35,13 +35,16 @@ CancelBtn.addEventListener('click', () => {
 // add task to "À faire" 
 const BtnAddTask = document.querySelector('.add');
 const columns = document.querySelectorAll('.column'); // Fixed: select all columns
+
 const inputTitle = document.querySelector('.Titre');
 const inputDescription = document.querySelector('.textarea');
 const inputDate = document.querySelector('.date');
 const inputSelect = document.querySelector('.select');
 
+
 const TotalDeTaches = document.querySelector('.TotalDeTaches');
-TotalDeTaches.textContent = 0;
+const NumAFaire = document.querySelector('.NumAFaire')
+// TotalDeTaches.textContent = 0;
 
 BtnAddTask.addEventListener('click', () => {
     if (BtnAddTask.classList.contains('add')) {
@@ -78,7 +81,8 @@ BtnAddTask.addEventListener('click', () => {
 
         RemoveBtn.addEventListener('click', () => {
             divTask.remove();
-            TotalDeTaches.textContent--;
+            TotalDeTaches.textContent--
+            NumAFaire.textContent--;
         });
 
         // EDIT BUTTON
@@ -106,6 +110,7 @@ BtnAddTask.addEventListener('click', () => {
         // Add to first column (À faire)
         columns[0].appendChild(divTask);
         TotalDeTaches.textContent++;
+        NumAFaire.textContent++ ;
 
         // Add drag events to the new task
         addDragEvents(divTask);
@@ -189,3 +194,4 @@ function getDragAfterElement(container, y) {
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
+
