@@ -435,6 +435,19 @@ p.num4 {
     cursor: pointer;
      width: 80px;
 }
+.Task.dragging {
+    opacity: 0.5;
+    background-color: #f0f0f0;
+}
+
+.Task {
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.Task:active {
+    cursor: grabbing;
+}
 
 @media (max-width: 1024px) {
     .Content .column {
