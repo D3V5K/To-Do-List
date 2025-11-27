@@ -1,3 +1,4 @@
+// window.localStorage.clear();
 // scroll and remove header 
 let header = document.querySelector(".navbar");
 let lastScroll = 0;
@@ -18,6 +19,8 @@ const addMultipleTasks = document.querySelector('.MultipleTasks');
 const CancelBtn = document.querySelector('.cancel');
 
 addTask.addEventListener('click', () => {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
     taskModal.classList.remove('modal');
     taskModal.classList.add('show');
 
@@ -46,6 +49,7 @@ const NumAFaire = document.querySelector('.NumAFaire');
 const NumEnCours = document.querySelector('.NumEnCours');
 const NumTerminées = document.querySelector('.NumTerminées');
 
+
 BtnAddTask.addEventListener('click', () => {
     if (BtnAddTask.classList.contains('add')) {
 
@@ -70,11 +74,13 @@ BtnAddTask.addEventListener('click', () => {
 
         let taskDate = document.createElement('p');
         taskDate.className = 'taskDate';
-        taskDate.textContent = 'Due : ' + inputDate.value;
+        let dateValue = inputDate.value
+        taskDate.textContent = 'Due : ' + dateValue;
 
         let taskSelect = document.createElement('p');
         taskSelect.className = 'taskSelect';
-        taskSelect.textContent = 'Priority : ' + inputSelect.value;
+        let PriorityValue = inputSelect.value
+        taskSelect.textContent = 'Priority : ' + PriorityValue;
 
         let DivBtn = document.createElement('div');
         DivBtn.className = 'DivBtn';
@@ -99,6 +105,9 @@ BtnAddTask.addEventListener('click', () => {
 
             inputTitle.value = taskTitle.textContent;
             inputDescription.value = taskDescription.textContent;
+            inputDate.value = dateValue;
+            inputSelect.value = PriorityValue;
+
 
             BtnAddTask.currentTask = divTask;
             BtnAddTask.classList.remove('add');
@@ -130,6 +139,14 @@ BtnAddTask.addEventListener('click', () => {
         taskModal.classList.remove('show');
         taskModal.classList.add('modal');
 
+        let title = `title_${Date.now()}`;
+        let Description = `Description_${Date.now()}`;
+        let Date = `date${Date.now()}`;
+        let Priority = `Priority${Date.now()}`;
+        window.localStorage.setItem(title, taskTitle.textContent)
+        window.localStorage.setItem(Description, taskDescription.textContent)
+        window.localStorage.setItem(Date, dateValue)
+        window.localStorage.setItem(Priority, PriorityValue)
 
     } else if (BtnAddTask.classList.contains('edit')) {
         let divTask = BtnAddTask.currentTask;
@@ -152,7 +169,32 @@ BtnAddTask.addEventListener('click', () => {
         taskModal.classList.remove('show');
         taskModal.classList.add('modal');
     }
+
+    // localStorage 
+    // إعداد object ديال المهمة باش نخزنها
+    let newTask = {
+        title: taskTitle.textContent,
+        description: taskDescription.textContent,
+        date: dateValue,
+        priority: PriorityValue
+    };
+
+    // نجيب المهام اللي كاينا فـ localStorage
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // نزيد المهمة الجديدة
+    tasks.push(newTask);
+
+    // نرجّعها لـ localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
 });
+
+
+
+
+
+
 
 // Function to update counters when task is moved between columns
 function updateCountersOnDrag(draggingTask, targetColumn) {
@@ -174,8 +216,8 @@ function updateCountersOnDrag(draggingTask, targetColumn) {
         NumEnCours.textContent = parseInt(NumEnCours.textContent) + 1;
     } else if (targetColumn === columns[2]) { // Terminées
         NumTerminées.textContent = parseInt(NumTerminées.textContent) + 1;
-    }
-}
+    };
+};
 
 // Function to update counter when task is removed
 function updateCounterOnRemove(column) {
@@ -185,8 +227,8 @@ function updateCounterOnRemove(column) {
         NumEnCours.textContent = Math.max(0, parseInt(NumEnCours.textContent) - 1);
     } else if (column === columns[2]) { // Terminées
         NumTerminées.textContent = Math.max(0, parseInt(NumTerminées.textContent) - 1);
-    }
-}
+    };
+};
 
 // Drag and Drop Functionality
 function addDragEvents(task) {
