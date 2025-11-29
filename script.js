@@ -35,7 +35,7 @@ CancelBtn.addEventListener('click', () => {
 // add task to "À faire" 
 const BtnAddTask = document.querySelector('.add');
 const columns = document.querySelectorAll('.column');
-console.log(columns[0].hasChildNodes(true));
+console.log(columns[0].hasChildNodes());
 const inputTitle = document.querySelector('.Titre');
 const inputDescription = document.querySelector('.textarea');
 const inputDate = document.querySelector('.date');
@@ -158,32 +158,37 @@ BtnAddTask.addEventListener('click', () => {
 function updateCountersOnDrag(draggingTask, targetColumn) {
     const sourceColumn = draggingTask.originalParent;
 
+    // Get all columns fresh each time to avoid reference issues
+    const allColumns = document.querySelectorAll('.column');
+
     // Update source column counter
-    if (sourceColumn === columns[0]) { // À faire
+    if (sourceColumn === allColumns[0]) { // À faire
         NumAFaire.textContent = Math.max(0, parseInt(NumAFaire.textContent) - 1);
-    } else if (sourceColumn === columns[1]) { // En cours
+    } else if (sourceColumn === allColumns[1]) { // En cours
         NumEnCours.textContent = Math.max(0, parseInt(NumEnCours.textContent) - 1);
-    } else if (sourceColumn === columns[2]) { // Terminées
+    } else if (sourceColumn === allColumns[2]) { // Terminées
         NumTerminées.textContent = Math.max(0, parseInt(NumTerminées.textContent) - 1);
     }
 
     // Update target column counter
-    if (targetColumn === columns[0]) { // À faire
+    if (targetColumn === allColumns[0]) { // À faire
         NumAFaire.textContent = parseInt(NumAFaire.textContent) + 1;
-    } else if (targetColumn === columns[1]) { // En cours
+    } else if (targetColumn === allColumns[1]) { // En cours
         NumEnCours.textContent = parseInt(NumEnCours.textContent) + 1;
-    } else if (targetColumn === columns[2]) { // Terminées
+    } else if (targetColumn === allColumns[2]) { // Terminées
         NumTerminées.textContent = parseInt(NumTerminées.textContent) + 1;
     }
 }
 
 // Function to update counter when task is removed
 function updateCounterOnRemove(column) {
-    if (column === columns[0]) { // À faire
+    const allColumns = document.querySelectorAll('.column');
+
+    if (column === allColumns[0]) { // À faire
         NumAFaire.textContent = Math.max(0, parseInt(NumAFaire.textContent) - 1);
-    } else if (column === columns[1]) { // En cours
+    } else if (column === allColumns[1]) { // En cours
         NumEnCours.textContent = Math.max(0, parseInt(NumEnCours.textContent) - 1);
-    } else if (column === columns[2]) { // Terminées
+    } else if (column === allColumns[2]) { // Terminées
         NumTerminées.textContent = Math.max(0, parseInt(NumTerminées.textContent) - 1);
     }
 }

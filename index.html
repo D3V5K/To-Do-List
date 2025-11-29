@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do-List</title>
@@ -18,7 +18,7 @@
             <button class="MultipleTasks">Multiples Tâches</button>
         </div>
     </header>
-      <div class="modal">
+    <div class="modal">
         <div class="form-card">
             <h2>Nouvelle tâche</h2>
 
@@ -54,17 +54,18 @@
         <div class="search">
             <input type="text" class="Input-search" placeholder="Rechercher une Tâche...">
             <div class="custom-select">
-                <select class="P">
-                    <option>toutes les propriétés</option>
-                    <option>P1</option>
-                    <option>P2</option>
-                    <option>P3</option>
+                <select class="P" id="priorityFilter">
+                    <option value="all">toutes les propriétés</option>
+                    <option value="p1">P1</option>
+                    <option value="p2">P2</option>
+                    <option value="p3">P3</option>
                 </select>
             </div>
             <div class="custom-select">
-                <select id="Selecter">
-                    <option>Trier par date</option>
-                    <option>Trier par priorité</option>
+                <select id="sortSelect">
+                    <option value="default">Trier par</option>
+                    <option value="date">Trier par date</option>
+                    <option value="priority">Trier par priorité</option>
                 </select>
             </div>
         </div>
@@ -84,28 +85,29 @@
             </div>
             <div>
                 <p class="parg4">Terminées</p>
-                <p class="Num">0</p>
+                <p class="NumTerminées">0</p>
+
             </div>
         </div>
 
-       <div class="Content">
-    <div class="column">
-        <p id="line">À faire</p>
-        <!-- <div  draggable="true" class="task AFaire"></div> -->
-    </div>
+        <div class="Content">
+            <div class="column">
+                <p id="line">À faire</p>
+                <!-- <div  draggable="true" class="task AFaire"></div> -->
+            </div>
 
-    <div class="column">
-        <p id="line">En cours</p>
-        <!-- <div class="task EnCours"></div> -->
-    </div>
+            <div class="column">
+                <p id="line">En cours</p>
+                <!-- <div class="task EnCours"></div> -->
+            </div>
 
-    <div class="column">
-        <p id="line">Terminées</p>
-        <!-- <div class="task Termine"></div> -->
-    </div>
-</div>
+            <div class="column">
+                <p id="line">Terminées</p>
+                <!-- <div class="task Termine"></div> -->
+            </div>
+        </div>
 
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </html>
